@@ -1,0 +1,103 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[left=2cm,text={17cm,24cm},top=3cm]{geometry}
+\usepackage[slovak]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+
+% URL
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+
+% IMG
+\usepackage{graphicx}
+\graphicspath{{.}}
+
+
+% #################################################################################################
+\begin{document}
+% #################################################################################################
+
+
+% #################################################################################################
+% TITLEPAGE
+\begin{titlepage}
+    \begin{center}
+        \Huge
+        \textsc{
+            Fakulta informačních technologií\\
+            Vysoké učení technické v~Brně
+        }
+        \vspace{100px}
+        \begin{figure}[!h]
+            \centering
+            \includegraphics[scale=0.3]{img/vutbr-fit-logo.eps}
+        \end{figure}
+        \\[20mm]
+        \huge{
+            \textbf{
+                SEN - Inteligentní senzory
+            }
+        }
+        \\[2em]
+        \LARGE{
+            \textbf{
+                Zprovoznění senzoru tepu srdce\\
+                a porovnání s oxymetrem
+            }
+        }
+        \vfill
+    \end{center}
+        \Large{
+            \hfill\\
+            Jiří Záleský (xzales12)\\
+            Adrián Tóth (xtotha01) \hfill \today
+        }
+
+\end{titlepage}
+
+
+% #################################################################################################
+% CONTENT
+
+
+\setlength{\parskip}{0pt}
+\hypersetup{hidelinks}\tableofcontents
+\setlength{\parskip}{0pt}
+
+\newpage %#########################################################################################
+
+\section{Úvod}
+
+... Senzor\cite{HEART-BEAT-SENZOR}, Nucleo\cite{NUCLEO-F042K6} ...
+
+\section{Návod}
+
+...
+
+\section{Implementácia}
+
+...
+
+\newpage %#########################################################################################
+
+\section{Prílohy}
+
+... image ...
+
+\newpage %#########################################################################################
+
+\makeatletter
+\makeatother
+\bibliographystyle{czechiso}
+\begin{flushleft}
+    \bibliography{quotation}
+\end{flushleft}
+
+
+% #################################################################################################
+\end{document}
+% #################################################################################################

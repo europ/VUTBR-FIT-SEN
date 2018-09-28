@@ -1,5 +1,11 @@
-### Hardware
+### Task
+* **name**: Zprovoznění senzoru tepu srdce a porovnání s oxymetrem (p.č. 2)
+* **variant**: B (max. 18b/22b)
+* **supervisor**: [Prof. Ing., Dipl.-Ing. Martin Drahanský, Ph.D.](http://www.fit.vutbr.cz/~drahan/.cs)
+* **assignment**: Zprovozněte senzor tepu srdce a proveďte měření na skupině alespoň 50 osob. Každé měření porovnejte s jiným přístrojem, např. oxymetrem.
+* **requirements**: Pro připojení senzoru tepu srdce použijte některý vývojový kit, dostupný ve laboratoři.
 
+### Hardware
 * NUCLEO F042K6
     * Nucleo STM32F042K6T6 32 PINS
         * ARM Cortex-M0 48MHz
