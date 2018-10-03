@@ -63,28 +63,7 @@ void ConsoleWrite(char *text);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-#ifdef __GNUC__
-  /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
-     set to 'Yes') calls __io_putchar() */
-  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
 
-/**
-  * @brief  Retargets the C library printf function to the USART.
-  * @param  None
-  * @retval None
-  */
-PUTCHAR_PROTOTYPE
-{
-    /* Place your implementation of fputc here */
-    /* e.g. write a character to the USART */
-    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 100);
-
-
-    return ch;
-}
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
@@ -125,7 +104,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -134,8 +112,7 @@ int main(void)
   /* USER CODE END WHILE */
 	  LDBlink();
 	  HAL_Delay(1000);
-
-	  printf("Hello\r\n");
+	  ConsoleWrite("Testovaci vypis\r\n");
 
   /* USER CODE BEGIN 3 */
 
@@ -220,8 +197,7 @@ static void MX_USART2_UART_Init(void)
 {
 
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 38400;
-  huart2.Init.WordLength = UART_WORDLENGTH_8B;
+  huart2.Init.BaudRate = 9600;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
   huart2.Init.Mode = UART_MODE_TX_RX;
@@ -229,9 +205,10 @@ static void MX_USART2_UART_Init(void)
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
   huart2.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart2.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+
   if (HAL_UART_Init(&huart2) != HAL_OK)
   {
-    _Error_Handler(__FILE__, __LINE__);
+	_Error_Handler(__FILE__, __LINE__);
   }
 
 }
@@ -282,14 +259,11 @@ void LDBlink()
 	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
 	HAL_Delay(200);
 	HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
-	HAL_Delay(200);
 }
 
 void ConsoleWrite(char *text)
 {
- // while(*text != '\0'){
-  //  ITM_SendChar((*text++));
- // }
+	HAL_UART_Transmit(&huart2, (uint8_t*)text, strlen(text), 0xFFFF);
 }
 
 /* USER CODE BEGIN 4 */
