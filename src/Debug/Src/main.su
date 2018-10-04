@@ -1,5 +1,5 @@
 main.c:128:6:SystemClock_Config	80	static
-main.c:257:6:LDBlink	8	static
-main.c:264:6:ConsoleWrite	8	static
+main.c:261:6:LDBlink	8	static
+main.c:268:6:ConsoleWrite	8	static
 main.c:78:5:main	56	static
-main.c:279:6:_Error_Handler	0	static
+main.c:283:6:_Error_Handler	0	static
