@@ -1,15 +1,16 @@
 %%
-%% This is file `czechiso.bst',
+%% This is file `englishiso.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
 %% merlin.mbs  (with options: `head,exlang,lang,vonx,nm-rev,jnrlst,aunm-semi,nmlm,x3,m3,atit-u,vnum-nr,volp-sp,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pg-bk,add-pub,isbn,issn,doi,edpar,edby,blk-tit,au-col,čeština,pp,and-xcom,xand,eprint,url,url-nl,nfss,,{}')
-%% czech.mbs  (with options: `exlang,lang,vonx,nm-rev,jnrlst,aunm-semi,nmlm,x3,m3,atit-u,vnum-nr,volp-sp,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pg-bk,add-pub,isbn,issn,doi,edpar,edby,blk-tit,au-col,čeština,pp,and-xcom,xand,eprint,url,url-nl,nfss,,{}')
+%% english.mbs  (with options: `exlang,lang,vonx,nm-rev,jnrlst,aunm-semi,nmlm,x3,m3,atit-u,vnum-nr,volp-sp,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pg-bk,add-pub,isbn,issn,doi,edpar,edby,blk-tit,au-col,čeština,pp,and-xcom,xand,eprint,url,url-nl,nfss,,{}')
 %% merlin.mbs  (with options: `tail,exlang,lang,vonx,nm-rev,jnrlst,aunm-semi,nmlm,x3,m3,atit-u,vnum-nr,volp-sp,jwdpg,pp-last,jwdvol,num-xser,ser-vol,ser-ed,pg-bk,add-pub,isbn,issn,doi,edpar,edby,blk-tit,au-col,čeština,pp,and-xcom,xand,eprint,url,url-nl,nfss,,{}')
 %% ----------------------------------------
 %% *** Styl snažící se být v souladu s normou ISO 690. Pomocí latex makebst vytvořil David Martinek. ***
-%% 
+%% Upravili: Tomáš Coufal a Ing. Jaroslav Dytrych
+%%
 %% Copyright 1994-2004 Patrick W Daly
  % ===============================================================
  % IMPORTANT NOTICE:
@@ -82,7 +83,7 @@ STRINGS { s t}
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
-    { ", " * write$ }
+    { ". " * write$ }
     { output.state after.block =
         { add.period$ write$
           newline$
@@ -222,74 +223,74 @@ FUNCTION {space.word}
  % Each function has a name bbl.xxx where xxx is the English word.
  %-------------------------------------------------------------------
  % Begin module:
- % \ProvidesFile{czech.mbs}[2006/03/31 1.0 (DM)]
+ % \ProvidesFile{english.mbs}[2006/03/31 1.0 (DM)]
 
- % The language selected here is CZECH
+ % The language selected here is ENGLISH
 FUNCTION {bbl.and}
-{ "a"}
+{ "and"}
 
 FUNCTION {bbl.etal}
-{ "aj." }
+{ "et al." }
 
 FUNCTION {bbl.editors}
-{ "editoři" }
+{ "editors" }
 
 FUNCTION {bbl.editor}
 { "editor" }
 
 FUNCTION {bbl.edby}
-{ "editace" }
+{ "edited by" }
 
 FUNCTION {bbl.edition}
-{ "vydání" }
+{ "edition" }
 
 FUNCTION {bbl.volume}
-{ "ročník" }
+{ "vol." }
 
 FUNCTION {bbl.of}
 { "" }
 
 FUNCTION {bbl.number}
-{ "číslo" }
+{ "number" }
 
 FUNCTION {bbl.nr}
-{ "č." }
+{ "no." }
 
 FUNCTION {bbl.in}
 { "in" }
 
 FUNCTION {bbl.pages}
-{ "s." }
+{ "pp." }
 
 FUNCTION {bbl.page}
-{ "str." }
+{ "page" }
 
 FUNCTION {bbl.chapter}
-{ "kapitola" }
+{ "chapter" }
 
 FUNCTION {bbl.techrep}
-{ "Technická Zpráva" }
+{ "Technical Report" }
 
 FUNCTION {bbl.mthesis}
-{ "Diplomová práce" }
+{ "Master's Thesis" }
 
 FUNCTION {bbl.phdthesis}
-{ "Dizertační práce" }
+{ "PhD. Thesis" }
 
 FUNCTION {bbl.first}
-{ "První" }
+{ "First" }
 
 FUNCTION {bbl.second}
-{ "Druhé" }
+{ "Second" }
 
 FUNCTION {bbl.third}
-{ "Třetí" }
+{ "Third" }
 
 FUNCTION {bbl.fourth}
-{ "Čtvrté" }
+{ "Fourth" }
 
 FUNCTION {bbl.fifth}
-{ "Páté" }
+{ "Fifth" }
 
 FUNCTION {bbl.st}
 { "" }
@@ -303,31 +304,31 @@ FUNCTION {bbl.rd}
 FUNCTION {bbl.th}
 { "" }
 
-MACRO {jan} {"Leden"}
+MACRO {jan} {"January"}
 
-MACRO {feb} {"Únor"}
+MACRO {feb} {"February"}
 
-MACRO {mar} {"Březen"}
+MACRO {mar} {"March"}
 
-MACRO {apr} {"Duben"}
+MACRO {apr} {"April"}
 
-MACRO {may} {"Květen"}
+MACRO {may} {"May"}
 
-MACRO {jun} {"Červen"}
+MACRO {jun} {"June"}
 
-MACRO {jul} {"Červenec"}
+MACRO {jul} {"July"}
 
-MACRO {aug} {"Srpen"}
+MACRO {aug} {"August"}
 
-MACRO {sep} {"Září"}
+MACRO {sep} {"September"}
 
-MACRO {oct} {"Říjen"}
+MACRO {oct} {"October"}
 
-MACRO {nov} {"Listopad"}
+MACRO {nov} {"November"}
 
-MACRO {dec} {"Prosinec"}
+MACRO {dec} {"December"}
 
- % End module: czech.mbs
+ % End module: english.mbs
 %% Copyright 1994-2004 Patrick W Daly
 MACRO {acmcs} {"ACM Computing Surveys"}
 
@@ -1576,7 +1577,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
-  "\providecommand{\urlprefix}{URL: }"
+  "\providecommand{\urlprefix}{Retrieved from: }"
   write$ newline$
   "\expandafter\ifx\csname urlstyle\endcsname\relax"
   write$ newline$
@@ -1599,4 +1600,4 @@ FUNCTION {end.bib}
 EXECUTE {end.bib}
 %% End of customized bst file
 %%
-%% End of file `czechiso.bst'.
+%% End of file `englishiso.bst'.
