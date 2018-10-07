@@ -16,6 +16,8 @@
 \usepackage{graphicx}
 \graphicspath{{.}}
 
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
 
 % #################################################################################################
 \begin{document}
@@ -104,8 +106,7 @@
 
 \newpage %#########################################################################################
 
-\makeatletter
-\makeatother
+\section{References}
 \bibliographystyle{englishiso}
 \begin{flushleft}
     \bibliography{quotation}
