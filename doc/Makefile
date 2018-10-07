@@ -5,7 +5,7 @@ make:
 	bibtex $(FILE)
 	latex $(FILE).tex
 	latex $(FILE).tex
-	dvips -t a4 $(FILE).dvi	
+	dvips -t a4 $(FILE).dvi
 	ps2pdf $(FILE).ps
 	make clean
 
