@@ -87,32 +87,44 @@ The goal of this project is to demonstrate a method of heart beat measurement vi
 
 The necessary facilities for the implementation of the project were:\\[-1.5em]
 \begin{itemize}
-    \item Device shown in Figure \ref{fig:platform}.
+    \item Device shown in Figure \ref{fig:platform1}.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.4]{img/device1.jpg}
             \caption{STM32 Nucleo board~\cite{IMG-DEVICE-1}.}
-            \label{fig:platform}
+            \label{fig:platform1}
         \end{figure}
         \hfill\\[-17mm]
-    \item Sensor shown in Figure \ref{fig:senzor}.
+    \item Sensor shown in Figure \ref{fig:senzor1}.
         \begin{figure}[H]
             \centering
             \includegraphics[scale=0.3]{img/sensor1.jpg}
             \caption{Keyes KY-039 Finger Heartbeat Detection Sensor~\cite{IMG-SENSOR-1}.}
-            \label{fig:senzor}
+            \label{fig:senzor1}
         \end{figure}
         \hfill\\[-18mm]
     \item Three female--to--female jumper wires.\\[-2.5mm]
 \end{itemize}
 
-\indent The device shown in Figure \ref{fig:platform} - NUCLEO-F030R8~\cite{PLATFORM}, was the main platform for the project. The device was equipped with a STM32F030R8~\cite{MCU} microcontroller unit (MCU), which was designed and made to be suitable for a wide range of applications. MCU includes a set of peripherals through which it communicates with other devices such as the sensor shown in Figure \ref{fig:senzor}. To create a communication pipeline, these units must be connected to each other via jumper wires. Wires provide a connection between the pins of units and so the pins have to be configured correctly.
+\indent The device shown in Figure \ref{fig:platform1} - NUCLEO-F030R8~\cite{PLATFORM}, was the main platform for the project. The device was equipped with a STM32F030R8~\cite{MCU} microcontroller unit (MCU), which was designed and made to be suitable for a wide range of applications. MCU includes a set of peripherals through which it communicates with other devices such as the sensor shown in Figure \ref{fig:senzor1}. To create a communication pipeline, these units must be connected to each other via jumper wires. Wires provide a connection between the pins of units and so the pins have to be configured correctly.
 
 \newpage %#########################################################################################
 
 \section{Setup}
 
-...
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{img/device2-wires.pdf}
+    \caption{NUCLEO-F030R8 connection scheme~\cite{IMG-DEVICE-2}.}
+    \label{fig:senzor2wires}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{img/sensor1-wires.pdf}
+    \caption{Keyes KY-039 connection scheme~\cite{IMG-SENSOR-1}.}
+    \label{fig:senzor2wires}
+\end{figure}
 
 \section{Implementation}
 
