@@ -112,6 +112,8 @@ The necessary facilities for the implementation of the project were:\\[-1.5em]
 
 \section{Setup}
 
+Firstly, the components must be connected to each other in a right way. Sensor, as a slave component shown in Figure \ref{fig:senzor2wires}, is connected to the main device (master component). These two units are connected via 3 jumper wires to the corresponding pins. The Figure \ref{fig:device2wires} and \ref{fig:senzor2wires} have three common marked pins: \textit{GND} (orange), \textit{5V} (yellow), \textit{PA0} (green); by which they are connected together. \textit{PA0} indicates an analog input pin to the master component. A precise description of all the necessary pins is shown in Figure \ref{fig:legend}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{img/device2-wires.pdf}
@@ -148,6 +150,15 @@ The necessary facilities for the implementation of the project were:\\[-1.5em]
     \end{center}
     \caption{Explanatory notes.}
     \label{fig:legend}
+\end{figure}
+
+After proper connection of devices, which are attached to the computer via mini USB port (see Figure \ref{fig:connection}), they are ready to be programmed.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.1]{img/vutbr-fit-logo.eps}
+    \caption{Correct connection of devices.}
+    \label{fig:connection}
 \end{figure}
 
 \section{Implementation}
