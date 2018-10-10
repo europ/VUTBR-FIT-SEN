@@ -1,5 +1,7 @@
-# VUTBR-FIT-SEN
-VUTBR - FIT: SEN 2018/2019
+# [SEN - Intelligent Sensors](https://www.fit.vutbr.cz/study/courses/index.php.en?id=12918)
 
-* [documentation](https://github.com/europ/VUTBR-FIT-SEN/blob/master/doc/doc.pdf)
+## © Adrián Tóth & Jiří Záleský
+
+* [source code](https://github.com/europ/VUTBR-FIT-SEN/tree/master/src)
 * [presentation](https://github.com/europ/VUTBR-FIT-SEN/blob/master/pres/pres.pdf)
+* [documentation](https://github.com/europ/VUTBR-FIT-SEN/blob/master/doc/doc.pdf)

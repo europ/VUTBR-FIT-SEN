@@ -26,8 +26,8 @@ bool measurement(){
     rawValue = analog_value.read_u16(); // Value from 0 to 65535
     rawValue = rawValue >> 6; // DIV 64 -> change to 0 - 1023
     PRINT_I(rawValue);
-    //pin_value = analog_value.read(); // Converts and read the analog input value (value from 0.0 to 1.0)    
-    
+    //pin_value = analog_value.read(); // Converts and read the analog input value (value from 0.0 to 1.0)
+
     static int maxHodnota = 0;
   static bool SpickovaHodnota = false;
     int analogHodnota;
@@ -71,7 +71,7 @@ int main() {
             if (beatFrequency > 50 & beatFrequency < 200) {
               printf("Heart beat frequency: %d BPM\r\n", beatFrequency);
             }
-            
+
             beatsPerMin = 0;
         }else{
             LED_OFF;
