@@ -7,6 +7,10 @@
 \usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{float}
+\usepackage{siunitx}
+
+\usepackage{textcomp}
+\newcommand{\tilda}{\raisebox{0.5ex}{\texttildelow}}
 
 % URL
 \usepackage{url}
@@ -77,7 +81,11 @@
 \hypersetup{hidelinks}\tableofcontents
 \setlength{\parskip}{0pt}
 
-\newpage %#########################################################################################
+\newpage
+
+\section{Project}
+
+The aim of this project is to commissioning a heart beat sensor whereby a few measurements are done, which are later compared to results of a valid device - oximeter. Prof. Ing., Dipl.-Ing. Martin Drahanský, Ph.D\footnote{\href{http://www.fit.vutbr.cz/~drahan/}{www.fit.vutbr.cz/{\tilda}drahan}} is the project supervisor.
 
 \section{Abstract}
 
@@ -87,12 +95,12 @@ The goal of this project is to demonstrate a method of heart beat measurement vi
 
 The necessary facilities for the implementation of the project were:\\[-1.5em]
 \begin{itemize}
-    \item Device shown in Figure \ref{fig:platform1}.
+    \item Device shown in Figure \ref{fig:oldplatform}.\\[-2em]
         \begin{figure}[H]
             \centering
-            \includegraphics[scale=0.4]{img/device1.jpg}
-            \caption{STM32 Nucleo board~\cite{IMG-DEVICE-1}.}
-            \label{fig:platform1}
+            \includegraphics[scale=1.4]{img/device-old.jpg}
+            \caption{STM32 Nucleo board~\cite{IMG-DEVICE-OLD}.}
+            \label{fig:oldplatform}
         \end{figure}
         \hfill\\[-17mm]
     \item Sensor shown in Figure \ref{fig:senzor1}.
@@ -106,9 +114,17 @@ The necessary facilities for the implementation of the project were:\\[-1.5em]
     \item Three female--to--female jumper wires.\\[-2.5mm]
 \end{itemize}
 
-\indent The device shown in Figure \ref{fig:platform1} - NUCLEO-F030R8~\cite{PLATFORM}, was the main platform for the project. The device was equipped with a STM32F030R8~\cite{MCU} microcontroller unit (MCU), which was designed and made to be suitable for a wide range of applications. MCU includes a set of peripherals through which it communicates with other devices such as the sensor shown in Figure \ref{fig:senzor1}. To create a communication pipeline, these units must be connected to each other via jumper wires. Wires provide a connection between the pins of units and so the pins have to be configured correctly.
+\newpage
 
-\newpage %#########################################################################################
+After, as we received the devices, we were facing to many problems. The main device representing the basic platform was not working properly so we had to ask for a new one. Later, the main device (shown in Figure \ref{fig:oldplatform}) was replaced to a new one (see Figure \ref{fig:platform1}) due to wrong functionality by the technical assistant of the project - Ing. Tomáš Goldmann\footnote{\href{http://www.fit.vutbr.cz/~igoldmann/}{www.fit.vutbr.cz/{\tilda}igoldmann}}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/device1.jpg}
+    \caption{STM32 Nucleo board~\cite{IMG-DEVICE-1}.}
+    \label{fig:platform1}
+\end{figure}
+
+\indent The device shown in Figure \ref{fig:platform1} - NUCLEO-F030R8~\cite{PLATFORM}, was the main platform for the project. The device was equipped with a STM32F030R8~\cite{MCU} microcontroller unit (MCU), which was designed and made to be suitable for a wide range of applications. MCU includes a set of peripherals through which it communicates with other devices such as the sensor shown in Figure \ref{fig:senzor1}. To create a communication pipeline, these units must be connected to each other via jumper wires. Wires provide a connection between the pins of units and so the pins have to be configured correctly.
 
 \section{Setup}
 
@@ -159,6 +175,26 @@ After proper connection of devices, which are attached to the computer via mini 
     \includegraphics[scale=0.1]{img/setup1.jpg}
     \caption{Correct connection of devices.}
     \label{fig:connection}
+\end{figure}
+
+As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended a different device connection which is shown in Figure \ref{fig:new_con_scheme}. It required to use a protoboard with two 10k\si{\ohm} resistors.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.5]{img/new_con_scheme.pdf}
+    \caption{New device connection scheme.}
+    \label{fig:new_con_scheme}
+\end{figure}
+
+\newpage
+
+The devices have been reconnected based on the given advice, which is shown in Figure \ref{fig:new_dev_con}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.1]{img/setup2.jpg}
+    \caption{New connection of devices.}
+    \label{fig:new_dev_con}
 \end{figure}
 
 \section{Implementation}
