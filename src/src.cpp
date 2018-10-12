@@ -19,18 +19,24 @@ DigitalOut led(LED1);
     wait(ms/1000); \
 }
 
-int delayTime = 60;
+int delayTime = 10; // 9 Maybe algorithm change needed (was 60)
 
 bool measurement(){
+/*    double alpha = 0.90;
+    int period = 100;
+    static double oldValue = 0;*/
     unsigned short rawValue;
     rawValue = analog_value.read_u16(); // Value from 0 to 65535
     rawValue = rawValue >> 6; // DIV 64 -> change to 0 - 1023
-    PRINT_I(rawValue);
-    //pin_value = analog_value.read(); // Converts and read the analog input value (value from 0.0 to 1.0)
-
+    //PRINT_I(rawValue);
+    //double value = alpha * oldValue + (1 - alpha) * rawValue;
+    //PRINT_F(value);
+    //PRINT("\r\n");
+    //pin_value = analog_value.read(); // Converts and read the analog input value (value from 0.0 to 1.0)    
+    
     static int maxHodnota = 0;
   static bool SpickovaHodnota = false;
-    int analogHodnota;
+     int analogHodnota;
   bool vysledek = false;
  analogHodnota = rawValue;
   // přepočet analogové hodnoty pro další výpočty
@@ -68,10 +74,14 @@ int main() {
         if (measurement()){
             LED_ON;
             beatFrequency = 60000 / beatsPerMin;
+            PRINT_I(beatsPerMin);
+            PRINT_I(beatFrequency);
+            PRINT("\r\n");
             if (beatFrequency > 50 & beatFrequency < 200) {
               printf("Heart beat frequency: %d BPM\r\n", beatFrequency);
+              //delay(1000);
             }
-
+            
             beatsPerMin = 0;
         }else{
             LED_OFF;
