@@ -128,7 +128,7 @@ After, as we received the devices, we were facing to many problems. The main dev
 
 \section{Setup}
 
-Firstly, the components must be connected to each other in a right way. Sensor, as a slave component shown in Figure \ref{fig:senzor2wires}, is connected to the main device (master component). These two units are connected via 3 jumper wires to the corresponding pins. The Figure \ref{fig:device2wires} and \ref{fig:senzor2wires} have three common marked pins: \textit{GND} (orange), \textit{5V} (yellow), \textit{PA0} (green); by which they are connected together. \textit{PA0} indicates an analog input pin to the master component. A precise description of all the necessary pins is shown in Figure \ref{fig:legend}.
+Firstly, the components must be connected to each other in a right way. Sensor, as a slave component shown in Figure \ref{fig:senzor2wires}, is connected to the main device (master component). These two units are connected via 3 jumper wires to the corresponding pins. The Figure \ref{fig:device2wires} and \ref{fig:senzor2wires} have three common marked pins: \textit{GND} (orange), \textit{5V} (yellow), \textit{PA0} and \textit{S} (green); by which they are connected together. \textit{PA0} indicates an analog input pin to the master component. A precise description of all the necessary pins is shown in Figure \ref{fig:legend}.
 
 \begin{figure}[H]
     \centering
@@ -148,17 +148,19 @@ Firstly, the components must be connected to each other in a right way. Sensor, 
     \begin{center}
         \begin{tabular}{|r|l|}
             \hline
-            \textbf{B1} & button 1 \\
+            \textbf{S}        & sensor output \\
             \hline
-            \textbf{B2} & button 2 \\
+            \textbf{B1}       & button 1 \\
             \hline
-            \textbf{LD2} & LED 2 \\
+            \textbf{B2}       & button 2 \\
             \hline
-            \textbf{GND} & ground \\
+            \textbf{LD2}      & LED 2 \\
             \hline
-            \textbf{5V} & 5 volt voltage supply \\
+            \textbf{GND}      & ground \\
             \hline
-            \textbf{PA0} & pin PA0 \\
+            \textbf{5V}       & 5 volt voltage supply \\
+            \hline
+            \textbf{PA0}      & pin PA0 \\
             \hline
             \textbf{mini USB} & mini USB port \\
             \hline
@@ -188,7 +190,7 @@ A connection scheme of the devices is shown in Figure \ref{fig:old_con_scheme}. 
 
 \newpage
 
-As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended a different device connection which is shown in Figure \ref{fig:new_con_scheme}. It required to use a protoboard with two 10k\si{\ohm} resistors.
+As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended to us a different device connection which is shown in Figure \ref{fig:new_con_scheme}. It required to use a protoboard with two 10k\si{\ohm} resistors and a few additional connection wires.
 
 \begin{figure}[H]
     \centering
@@ -197,7 +199,7 @@ As we were working on the implementation part of the project, there was a measur
     \label{fig:new_con_scheme}
 \end{figure}
 
-The devices have been reconnected based on the given advice, which is shown in Figure \ref{fig:new_dev_con}.
+The devices have been reconnected based on the given advice, which is shown in Figure \ref{fig:new_dev_con}. This setup was the proper one where the values have not been affected by voltage.
 
 \begin{figure}[H]
     \centering
