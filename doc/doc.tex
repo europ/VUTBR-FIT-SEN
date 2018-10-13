@@ -93,6 +93,15 @@ The goal of this project is to demonstrate a method of heart beat measurement vi
 
 \section{Introduction}
 
+The infrared light has a key role in this project. The infrared LED represents a main source of infrared rays which are sent in a direction to phototransistor. These rays may be affected by any kind of object in the way to the phototransistor that represents a blockade. Using a finger as a rays blockade, the rays are affected not only by the finger itself, but also by the blood in the finger. As the heart is pulsing inside of the person's body, the blood pressure is different inside of the finger's veins, which has also a great impact on the rays. The emitted rays from the finger are detected by the phototransistor that produce a precise values. Based on these values, there is a possibility to detect heart beat. This method of measurement is shown in Figure \ref{fig:method}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{img/infrared_method.pdf}
+    \caption{Method of infrared heart beat measurement.}
+    \label{fig:method}
+\end{figure}
+
 The necessary facilities for the implementation of the project were:\\[-1.5em]
 \begin{itemize}
     \item Device shown in Figure \ref{fig:oldplatform}.\\[-2em]
@@ -113,8 +122,6 @@ The necessary facilities for the implementation of the project were:\\[-1.5em]
         \hfill\\[-18mm]
     \item Three female--to--female jumper wires.\\[-2.5mm]
 \end{itemize}
-
-\newpage
 
 After, as we received the devices, we were facing to many problems. The main device representing the basic platform was not working properly so we had to ask for a new one. Later, the main device (shown in Figure \ref{fig:oldplatform}) was replaced to a new one (see Figure \ref{fig:platform1}) due to wrong functionality by the technical assistant of the project - Ing. Tomáš Goldmann\footnote{\href{http://www.fit.vutbr.cz/~igoldmann/}{www.fit.vutbr.cz/{\tilda}igoldmann}}.
 \begin{figure}[H]
@@ -170,8 +177,6 @@ Firstly, the components must be connected to each other in a right way. Sensor, 
     \label{fig:legend}
 \end{figure}
 
-\newpage
-
 A connection scheme of the devices is shown in Figure \ref{fig:old_con_scheme}. After the devices were correctly connected and attached to the computer via mini USB port (see Figure \ref{fig:connection}), they were ready to be programmed.
 
 \begin{figure}[H]
@@ -187,8 +192,6 @@ A connection scheme of the devices is shown in Figure \ref{fig:old_con_scheme}. 
     \caption{Correct connection of devices.}
     \label{fig:connection}
 \end{figure}
-
-\newpage
 
 As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended to us a different device connection which is shown in Figure \ref{fig:new_con_scheme}. It required to use a protoboard with two 10k\si{\ohm} resistors and a few additional connection wires.
 
