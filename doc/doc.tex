@@ -219,10 +219,12 @@ The devices have been reconnected based on the given advice, which is shown in F
 \newpage
 
 \section{Implementation}
+The program searches for peaks in the signal from the sensor that indicates the heartbeat. Beat is indicated by the flashing of the LED diode. It does not record the history of heartbeat for the final calculation of the heartbeat frequency. Heartbeat frequency calculation is based on time between beats and known delay.
 
 ...sensor code\cite{SENSOR}...
 
 \section{Conclusion}
+Measurement success depends on the position of the finger which must be without movement. TODO
 
 ...
 
