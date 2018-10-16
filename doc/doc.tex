@@ -85,15 +85,15 @@
 
 \section{Project}
 
-The aim of this project is to commissioning a heart beat sensor whereby a few measurements are done, which are later compared to results of a valid device - oximeter. Prof. Ing., Dipl.-Ing. Martin Drahanský, Ph.D\footnote{\href{http://www.fit.vutbr.cz/~drahan/}{www.fit.vutbr.cz/{\tilda}drahan}} is the project supervisor.
+The aim of this project is to comission a heart beat sensor. Within the project, there will be done several measurements, which will be later compared with the results of a valid device - oximeter. Prof. Ing., Dipl.-Ing. Martin Drahanský, Ph.D\footnote{\href{http://www.fit.vutbr.cz/~drahan/}{www.fit.vutbr.cz/{\tilda}drahan}} is the project supervisor.
 
 \section{Abstract}
 
-The goal of this project is to demonstrate a method of heart beat measurement via infrared light. The next sections below, will describe further details, which were required to be done to the right functionality. The results of measurement were compared with a valid heart beat sensor, which measured heart beat in other way than the infrared method.
+The aim of this project is to demonstrate a method of measuring heart beat via infrared light. The upcoming sections will describe further requirements to achieve the right functionality. The results of measurement were compared with a valid heart beat sensor, which measured heart beat in other way than the infrared method.
 
 \section{Introduction}
 
-The infrared light has a key role in this project. The infrared LED represents a main source of infrared rays which are sent in a direction to phototransistor. These rays may be affected by any kind of object in the way to the phototransistor that represents a blockade. Using a finger as a rays blockade, the rays are affected not only by the finger itself, but also by the blood in the finger. As the heart is pulsing inside of the person's body, the blood pressure is different inside of the finger's veins, which has also a great impact on the rays. The emitted rays from the finger are detected by the phototransistor that produce a precise values. Based on these values, there is a possibility to detect heart beat. This method of measurement is shown in Figure \ref{fig:method}.
+The infrared light has a key role in this project. The infrared LED represents a main source of infrared rays which are sent in a direction to phototransistor. These rays may be affected by any kind of object representing a blockade in the way to the phototransistor. Using a finger as a rays blockade, the rays are affected not only by the finger itself, but also by the blood in the finger. As the heart is pulsing inside of the person's body, the blood pressure is different inside of the finger's veins, which has also a great impact on the rays. The emitted rays from the finger are detected by the phototransistor that produces a precise values. Based on these values, there is a possibility to detect heart beat. This method of measurement is shown in Figure \ref{fig:method}.
 
 \begin{figure}[H]
     \centering
@@ -101,6 +101,8 @@ The infrared light has a key role in this project. The infrared LED represents a
     \caption{Method of infrared heart beat measurement.}
     \label{fig:method}
 \end{figure}
+
+\newpage
 
 The necessary facilities for the implementation of the project were:\\[-1.5em]
 \begin{itemize}
@@ -123,7 +125,10 @@ The necessary facilities for the implementation of the project were:\\[-1.5em]
     \item Three female--to--female jumper wires.\\[-2.5mm]
 \end{itemize}
 
-After, as we received the devices, we were facing to many problems. The main device representing the basic platform was not working properly so we had to ask for a new one. Later, the main device (shown in Figure \ref{fig:oldplatform}) was replaced to a new one (see Figure \ref{fig:platform1}) due to wrong functionality by the technical assistant of the project - Ing. Tomáš Goldmann\footnote{\href{http://www.fit.vutbr.cz/~igoldmann/}{www.fit.vutbr.cz/{\tilda}igoldmann}}.
+After we received the devices, we faced a lot of problems. The main device representing the basic platform was not working properly so we had to ask for a new one. Later, the main device (shown in Figure \ref{fig:oldplatform}) was replaced to a new one (see Figure \ref{fig:platform1}) due to wrong functionality by the technical assistant of the project - Ing. Tomáš Goldmann\footnote{\href{http://www.fit.vutbr.cz/~igoldmann/}{www.fit.vutbr.cz/{\tilda}igoldmann}}.
+
+\newpage
+
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{img/device1.jpg}
@@ -193,7 +198,7 @@ A connection scheme of the devices is shown in Figure \ref{fig:old_con_scheme}. 
     \label{fig:connection}
 \end{figure}
 
-As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended to us a different device connection which is shown in Figure \ref{fig:new_con_scheme}. It required to use a protoboard with two 10k\si{\ohm} resistors and a few additional connection wires.
+As we were working on the implementation part of the project, there was a measurement anomaly. The results were affected by different input voltage on the pin. We asked for an advice from the technical assistant. He has recommended us a different device connection which is shown in Figure \ref{fig:new_con_scheme}. He suggested to use a protoboard with two 10k\si{\ohm} resistors and a few additional connection wires.
 
 \begin{figure}[H]
     \centering
