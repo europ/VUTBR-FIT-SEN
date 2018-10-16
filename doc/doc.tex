@@ -219,13 +219,13 @@ The devices have been reconnected based on the given advice, which is shown in F
 \newpage
 
 \section{Implementation}
-The program searches for peaks in the signal from the sensor that indicates the heartbeat. Beat is indicated by the flashing of the LED diode. It does not record the history of heartbeat for the final calculation of the heartbeat frequency. Heartbeat frequency calculation is based on time between beats and known delay.
+The implementation is based on an algorithm~\cite{SENSOR}, which detects deviation in a set of incoming values from the sensor. The values, incoming as a sequence of measurements, contain a few values that have a certain deviation what indicates the pulse. This is the deviation on which basis we can calculate the hear beat per minutes also know as beats per minute (BPM). The program will light up a LED (see LD2 in Figure \ref{fig:device2wires}) on each beat. The BPM is calculated from one period - the time between two hear beats. No history is used for the calculations.\\
 
-...sensor code\cite{SENSOR}...
+Algorithm itself is a little bit complicated due to moving interval of incoming values. The finger position significantly affects the value interval but do not have any impact on the deviation between the values. To detect a deviation, it is necessary to keep a previous value from the sequence. A comparison action is provided which will determine divergence between the values. If this action will establish the deviation as large enough, this value will be determined as a beat at that moment.\\
+
+The precision of the algorithm depends on the device configuration and its precision. It is nearly impossible to make a universal algorithm which can determine heart beat on inaccurate values. The more accurate the sensor values, the more precise the results. As an accuracy factor we can count with a finger motion that has the biggest impact on the BPM calculations. By examining the sensor, we can see that the phototransistor is not sealed into rubber. This fact indicates, that the sensor is receiving external infrared rays from the surrounding area. We can assume that the surrounding area can influence the results.
 
 \section{Conclusion}
-Measurement success depends on the position of the finger which must be without movement. TODO
-
 ...
 
 \newpage %#########################################################################################
