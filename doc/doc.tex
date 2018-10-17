@@ -4,25 +4,43 @@
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{indentfirst}
-\usepackage{hyperref}
-\usepackage{float}
-\usepackage{siunitx}
 
+\usepackage{url}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{hyperref}
 \usepackage{textcomp}
+\usepackage{breakurl}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+
+\def\UrlBreaks{\do\/\do-}
 \newcommand{\tilda}{\raisebox{0.5ex}{\texttildelow}}
 
-% URL
-\usepackage{url}
-\def\UrlBreaks{\do\/\do-}
-\usepackage{breakurl}
-
-% IMG
-\usepackage{graphicx}
 \graphicspath{{.}}
-
-\usepackage{etoolbox}
 \patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\definecolor{stringcolor}{RGB}{178, 163, 19}
+
+\lstset{
+    frame=tb,
+    tabsize=2,
+    numbers=left,
+    framexleftmargin=25pt,
+    xleftmargin=.141\textwidth,
+    linewidth=40em,
+    breaklines=true,
+    basicstyle=\scriptsize\ttfamily,
+    commentstyle=\color{gray},
+    keywordstyle=\color{red},
+    stringstyle=\color{stringcolor},
+    otherkeywords={>,<,*,&,|,+,-,!,=,~},
+    emph={int,char,double,float,unsigned},
+    emphstyle={\color{blue}}
+}
+
 
 % #################################################################################################
 \begin{document}
@@ -221,6 +239,8 @@ The devices have been reconnected based on the given advice, which is shown in F
 \section{Implementation}
 The implementation is based on an algorithm~\cite{SENSOR}, which detects deviation in a set of incoming values from the sensor. The values, incoming as a sequence of measurements, contain a few values that have a certain deviation what indicates the pulse. This is the deviation on which basis we can calculate the hear beat per minutes also know as beats per minute (BPM). The program will light up a LED (see LD2 in Figure \ref{fig:device2wires}) on each beat. The BPM is calculated from one period - the time between two hear beats. No history is used for the calculations.\\
 
+We used \textit{Mbed OS 5}\footnote{https://os.mbed.com/} to develop the necessary code for the right functionality. It is a browser-based IDE, which also includes a build-in compiler. Based on your set device in this IDE, you can compile online and download the binary file. The device may be programmed by writing this binary file to the device via any type of file manager that is connected to computer via USB. The main source code is shown in Listing \ref{lst:code}.\\
+
 Algorithm itself is a little bit complicated due to moving interval of incoming values. The finger position significantly affects the value interval but do not have any impact on the deviation between the values. To detect a deviation, it is necessary to keep a previous value from the sequence. A comparison action is provided which will determine divergence between the values. If this action will establish the deviation as large enough, this value will be determined as a beat at that moment.\\
 
 The precision of the algorithm depends on the device configuration and its precision. It is nearly impossible to make a universal algorithm which can determine heart beat on inaccurate values. The more accurate the sensor values, the more precise the results. As an accuracy factor we can count with a finger motion that has the biggest impact on the BPM calculations. By examining the sensor, we can see that the phototransistor is not sealed into rubber. This fact indicates, that the sensor is receiving external infrared rays from the surrounding area. We can assume that the surrounding area can influence the results.
@@ -246,6 +266,85 @@ The precision of the algorithm depends on the device configuration and its preci
     \caption{Table of measurements.}
     \label{fig:measurements}
 \end{figure}
+
+\begin{lstlisting}[language=C++,caption={Source code.},captionpos=b,label={lst:code}]
+#include "mbed.h"
+
+AnalogIn analog_value(A0);
+DigitalOut led(LED1);
+int delayTime = 10;
+
+#define LED_ON { led = 1; }
+#define LED_OFF { led = 0; }
+
+bool measurement() {
+    static int maxValue = 0;
+    static bool spikeDetected = false;
+    int analogValue;
+    bool result = false;
+
+    analogValue = analog_value.read_u16(); // analogValue from 0 to 65535
+
+    // Voltage measurement transformation
+    analogValue = analogValue >> 6; // DIV 64 -> change to 0 - 1023
+    analogValue *= (1000 / delayTime);
+
+    // The last maxValue will be detected as a peak.
+    if (analogValue * 4L < maxValue) {
+        maxValue = analogValue * 0.8;
+    }
+
+    // Beat detection
+    if (analogValue > maxValue - (1000 / delayTime)) {
+
+        // Change maximum value for next measurement
+        if (analogValue > maxValue) {
+            maxValue = analogValue;
+        }
+
+        // Allocate only one heartbeat to a peak.
+        if (spikeDetected == false) {
+            result = true;
+        }
+
+        spikeDetected = true;
+    }
+    else if (analogValue < maxValue - (3000 / delayTime)) {
+        spikeDetected = false;
+
+        // Change maximum value for remove fake beats
+        maxValue -= (1000 / delayTime);
+    }
+
+    return result;
+}
+
+int main() {
+    int beatFrequency;
+    int beatsPerMin = 0;
+
+    while(1) {
+        if (measurement()) {
+            LED_ON;
+
+            // Count beats per minute
+            beatFrequency = 60000 / beatsPerMin;
+
+            if (beatFrequency > 50 & beatFrequency < 200) {
+              printf("Heart beat frequency: %d BPM\r\n", beatFrequency);
+            }
+
+            beatsPerMin = 0;
+        }
+        else {
+            LED_OFF;
+        }
+
+        wait_ms(delayTime);
+        beatsPerMin += delayTime;
+    }
+}
+\end{lstlisting}
 
 \newpage %#########################################################################################
 
