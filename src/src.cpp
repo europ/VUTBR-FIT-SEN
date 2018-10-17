@@ -13,7 +13,8 @@ bool measurement() {
     int analogValue;
     bool result = false;
 
-    analogValue = analog_value.read_u16(); // analogValue from 0 to 65535
+    // analogValue from 0 to 65535
+    analogValue = analog_value.read_u16();
 
     // Voltage measurement transformation
     analogValue = analogValue >> 6; // DIV 64 -> change to 0 - 1023

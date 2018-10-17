@@ -2,6 +2,7 @@
 
 ## © Adrián Tóth & Jiří Záleský
 
+* [assignment](https://github.com/europ/VUTBR-FIT-SEN/tree/master/task)
 * [source code](https://github.com/europ/VUTBR-FIT-SEN/tree/master/src)
 * [presentation](https://github.com/europ/VUTBR-FIT-SEN/blob/master/pres/pres.pdf)
 * [documentation](https://github.com/europ/VUTBR-FIT-SEN/blob/master/doc/doc.pdf)
