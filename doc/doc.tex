@@ -15,6 +15,7 @@
 \usepackage{breakurl}
 \usepackage{etoolbox}
 \usepackage{graphicx}
+\usepackage{longtable}
 \usepackage{indentfirst}
 
 \def\UrlBreaks{\do\/\do-}
@@ -109,7 +110,7 @@ The aim of this project is to comission a heart beat sensor. Within the project,
 
 The aim of this project is to demonstrate a method of measuring heart beat via infrared light. The upcoming sections will describe further requirements to achieve the right functionality. The results of measurement were compared with a valid heart beat sensor, which measured heart beat in other way than the infrared method.
 
-\section{Introduction}
+\section{Introduction}\label{sec:intro}
 
 The infrared light has a key role in this project. The infrared LED represents a main source of infrared rays which are sent in a direction to phototransistor. These rays may be affected by any kind of object representing a blockade in the way to the phototransistor. Using a finger as a rays blockade, the rays are affected not only by the finger itself, but also by the blood in the finger. As the heart is pulsing inside of the person's body, the blood pressure is different inside of the finger's veins, which has also a great impact on the rays. The emitted rays from the finger are detected by the phototransistor that produces a precise values. Based on these values, there is a possibility to detect heart beat. This method of measurement is shown in Figure \ref{fig:method}.
 
@@ -245,6 +246,10 @@ Algorithm itself is a little bit complicated due to dynamic range of incoming va
 
 The precision of the algorithm depends on the device configuration and sensor precision. It is nearly impossible to make a universal algorithm which can determine heart beat on inaccurate values. The more accurate the sensor values, the more precise the results. As an accuracy factor we can count with a finger motion that has the biggest impact on the BPM calculations. By examining the sensor, we can see that the phototransistor is not sealed into rubber. This fact indicates, that the sensor is receiving external infrared rays from the surrounding area. We can assume that the surrounding area can influence the results too.
 
+\section{Mensuration}
+
+We have done fifty measurements on different persons with our device and valid device. These values are shown in Table \ref{fig:measurements}. Column `\textit{Person}' represents each person, column `\textit{Value 1}' includes values measured via devices shown in Section \ref{sec:intro} and column `\textit{Value 2}' includes values measured via valid device TODO.
+
 \section{Conclusion}
 ...
 Vliv okamžitého psychikého stavu na měření (strach a stres z měření).
@@ -254,20 +259,65 @@ Vliv okamžitého psychikého stavu na měření (strach a stres z měření).
 
 \section{Appendix}
 
-\begin{figure}[H]
-    \begin{center}
-        \begin{tabular}{|l|c|}
-            \hline
-            \textbf{Name} & \textbf{Value} \\
-            \hline\hline
-            n1 & v1 \\\hline
-            n2 & v2 \\\hline
-            n3 & v3 \\\hline
-        \end{tabular}
-    \end{center}
-    \caption{Table of measurements.}
-    \label{fig:measurements}
-\end{figure}
+\begin{center}
+    \begin{longtable}{|c|c|c|}
+        \hline
+        \textbf{Person} & \textbf{Value 1} & \textbf{Value 2} \\
+        \hline\hline
+        1 & 85 & 79 \\\hline
+        2 & 95 & 94 \\\hline
+        3 & 88 & 70 \\\hline
+        4 & 77 & 89 \\\hline
+        5 & 86 & 83 \\\hline
+        6 & 72 & 67 \\\hline
+        7 & 86 & 96 \\\hline
+        8 & 74 & 62 \\\hline
+        9 & 80 & 83 \\\hline
+        10 & 85 & 64 \\\hline
+        11 & 64 & 60 \\\hline
+        12 & 84 & 60 \\\hline
+        13 & 60 & 66 \\\hline
+        14 & 57 & 59 \\\hline
+        15 & 83 & 81 \\\hline
+        16 & 75 & 61 \\\hline
+        17 & 76 & 65 \\\hline
+        18 & 89 & 80 \\\hline
+        19 & 61 & 72 \\\hline
+        20 & 63 & 74 \\\hline
+        21 & 74 & 58 \\\hline
+        22 & 69 & 75 \\\hline
+        23 & 67 & 68 \\\hline
+        24 & 92 & 99 \\\hline
+        25 & 120 & 119 \\\hline
+        26 & 64 & 65 \\\hline
+        27 & 67 & 66 \\\hline
+        28 & 72 & 65 \\\hline
+        29 & 92 & 95 \\\hline
+        30 & 66 & 64 \\\hline
+        31 & 60 & 62 \\\hline
+        32 & 73 & 74 \\\hline
+        33 & 65 & 68 \\\hline
+        34 & 65 & 66 \\\hline
+        35 & 105 & 106 \\\hline
+        36 & 72 & 81 \\\hline
+        37 & 68 & 71 \\\hline
+        38 & 91 & 88 \\\hline
+        39 & 61 & 63 \\\hline
+        40 & 67 & 66 \\\hline
+        41 & 115 & 112 \\\hline
+        42 & 95 & 79 \\\hline
+        43 & 90 & 99 \\\hline
+        44 & 73 & 69 \\\hline
+        45 & 75 & 75 \\\hline
+        46 & 96 & 92 \\\hline
+        47 & 89 & 87 \\\hline
+        48 & 90 & 88 \\\hline
+        49 & 86 & 89 \\\hline
+        50 & 122 & 127 \\\hline
+        \caption{Table of measurements.}
+        \label{fig:measurements}
+    \end{longtable}
+\end{center}
 
 \begin{lstlisting}[language=C++,caption={Source code.},captionpos=b,label={lst:code}]
 #include "mbed.h"
