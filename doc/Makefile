@@ -19,7 +19,7 @@ travis-build: clean-all
 
 .PHONY: clean
 clean:
-	@rm -fv *.aux *.log *.dvi *.ps *.bbl *.blg *.toc *.out
+	@rm -fv *.aux *.log *.dvi *.ps *.bbl *.blg *.toc *.out *.lof
 
 
 .PHONY: clean-all
