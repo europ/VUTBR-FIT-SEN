@@ -1,3 +1,19 @@
+/**
+ * Date:
+ *     19.10.2018
+ *
+ * Course:
+ *     SEN - Intelligent Sensors
+ *     https://www.fit.vutbr.cz/study/courses/index.php.en?id=12918
+ *
+ * Project:
+ *     Commissioning Heartbeat Sensor and Comparison Against Oximeter
+ *
+ * Authors:
+ *     Adrián Tóth, xtotha01@stud.fit.vutbr.cz
+ *     Jiří Záleský, xzales12@stud.fit.vutbr.cz
+ */
+
 #include "mbed.h"
 
 AnalogIn analog_value(A0);
