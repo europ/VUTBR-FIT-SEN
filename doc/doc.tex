@@ -15,7 +15,7 @@
 \usepackage{breakurl}
 \usepackage{etoolbox}
 \usepackage{graphicx}
-\usepackage{longtable}
+\usepackage{supertabular}
 \usepackage{indentfirst}
 
 \def\UrlBreaks{\do\/\do-}
@@ -241,7 +241,7 @@ The devices have been reconnected based on the given advice, which is shown in F
 
 The implementation is based on an algorithm~\cite{SENSOR}, which detects deviation in a set of incoming values from the sensor. The values, incoming as a sequence of measurements, contain a few that have a certain deviation what indicates the pulse. This is the deviation, which basis we can calculate the hear beat per minutes also know as beats per minute (BPM) on. The program will light up a LED (see LD2 in Figure \ref{fig:device2wires}) on each beat. The BPM is calculated from one period - the time between two hear beats. No history is used for the calculations.\\
 
-We used \textit{Mbed OS 5}\footnote{\href{https://os.mbed.com/}{os.mbed.com}} to develop the necessary code for the right functionality. It is a browser-based IDE, which also includes a build-in compiler. Based on your set device in this IDE, you can compile online and download the binary file. The device may be programmed by writing this binary file to the device directly, which is connected to computer by USB, via any type of file manager. The main source code is shown in Listing \ref{lst:code}.\\
+We used \textit{Mbed OS 5}\footnote{\href{https://os.mbed.com/}{os.mbed.com}} to develop the necessary code for the right functionality. It is a browser-based IDE, which also includes a build-in compiler. Based on your set device in this IDE, you can compile online and download the binary file. The device may be programmed by writing this binary file to the device directly, which is connected to computer by USB, via any type of file manager. The main source code is shown in \ref{subsec:code}.\\
 
 Algorithm itself is a little bit complicated due to dynamic range of incoming values - there is no value from a static interval. The finger position significantly affects the interval of values, but does not have any impact on the deviation between the values. Integers representing the values, are generated between 0 and 65535. The finger position will state a subinterval, which is shifted on that interval based on the finger position due to change of resistance. To detect a deviation, it is necessary to keep a previous value from the sequence. A calculation related to comparing action is provided, which will determine divergence between the values. If this action will establish the deviation as large enough, this value will be determined as a beat at that moment.\\
 
@@ -249,7 +249,7 @@ The precision of the algorithm depends on the device configuration and sensor pr
 
 \section{Mensuration}\label{sec:mensuration}
 
-Measurements were done on fifty different persons with our device and valid device. The values of each measurement are shown in Table \ref{fig:measurements}. Each row in a table represents a different person that is numbered. Other columns such as `\textit{Value 1}' contain values measured via sensor, which was presented in Section \ref{sec:intro} -- Introduction. The last column `\textit{Value 2}' includes values measured via valid device - SILVERCREST - Pulsoximeter SPO 55 (see Figure \ref{fig:pulsoximeter1}). Pulsoximeter is simple, smart, compact and easy to use device. The usage is shown in Figure \ref{fig:pulsoximeter2}. Further informations about the correct device usage are shown in video\footnote{\href{https://youtu.be/RMRV1MhwhIw}{youtu.be/RMRV1MhwhIw}}.\\
+Measurements were done on fifty different persons with our device and valid device. The values of each measurement are shown in Table of measurements(\ref{subsec:table}). Each row in a table represents a different person that is numbered. Other columns such as `\textit{Value 1}' contain values measured via sensor, which was presented in Section \ref{sec:intro} -- Introduction. The last column `\textit{Value 2}' includes values measured via valid device - SILVERCREST - Pulsoximeter SPO 55 (see Figure \ref{fig:pulsoximeter1}). Pulsoximeter is simple, smart, compact and easy to use device. The usage is shown in Figure \ref{fig:pulsoximeter2}. Further informations about the correct device usage are shown in video\footnote{\href{https://youtu.be/RMRV1MhwhIw}{youtu.be/RMRV1MhwhIw}}.\\
 
 \newpage
 
@@ -277,8 +277,8 @@ Based on the measurements, we can calculate statistical values on which basis we
       the greatest deviation & 40,00\%\\
       the smallest deviation & 0,00\%\\
     \end{tabular}
-    \label{tab:stats}
     \caption{Statistical values.}
+    \label{tab:stats}
   \end{center}
 \end{table}
 
@@ -292,12 +292,11 @@ We have done a few measurements on people with heart arrhythmia, but we could no
 \newpage
 
 \section{Appendix}
-
+\subsection{Table of measurements}\label{subsec:table}
+\vspace*{0,7cm}
 \begin{center}
-    \begin{longtable}{|c|c|c|}
-        \hline
-        \textbf{Person} & \textbf{Value 1} & \textbf{Value 2} \\
-        \hline\hline
+    \tablehead{\textbf{Person} & \textbf{Value 1} & \textbf{Value 2}\\\hline}
+    \begin{supertabular}{|c|c|c|}
         1 & 85 & 79 \\\hline
         2 & 95 & 94 \\\hline
         3 & 88 & 70 \\\hline
@@ -323,6 +322,8 @@ We have done a few measurements on people with heart arrhythmia, but we could no
         23 & 67 & 68 \\\hline
         24 & 92 & 99 \\\hline
         25 & 120 & 119 \\\hline
+        \end{supertabular}
+        \begin{supertabular}{|c|c|c|}
         26 & 64 & 65 \\\hline
         27 & 67 & 66 \\\hline
         28 & 72 & 65 \\\hline
@@ -347,13 +348,17 @@ We have done a few measurements on people with heart arrhythmia, but we could no
         47 & 89 & 87 \\\hline
         48 & 90 & 88 \\\hline
         49 & 86 & 89 \\\hline
-        50 & 122 & 127 \\\hline
-        \caption{Table of measurements.}
-        \label{fig:measurements}
-    \end{longtable}
-\end{center}
+        50 & 122 & 127\\\hline
+        
+    \end{supertabular}
+\end{center}¨
 
-\begin{lstlisting}[language=C++,caption={Source code.},captionpos=b,label={lst:code}]
+\newpage
+\subsection{Source code}
+\label{subsec:code}
+
+\vspace{0,5cm}
+\begin{lstlisting}[language=C++, basicstyle=\tiny, frame=single]
 #include "mbed.h"
 
 AnalogIn analog_value(A0);
