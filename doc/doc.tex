@@ -237,7 +237,8 @@ The devices have been reconnected based on the given advice, which is shown in F
 
 \newpage
 
-\section{Implementation}
+\section{Implementation}\label{sec:impl}
+
 The implementation is based on an algorithm~\cite{SENSOR}, which detects deviation in a set of incoming values from the sensor. The values, incoming as a sequence of measurements, contain a few values that have a certain deviation what indicates the pulse. This is the deviation on which basis we can calculate the hear beat per minutes also know as beats per minute (BPM). The program will light up a LED (see LD2 in Figure \ref{fig:device2wires}) on each beat. The BPM is calculated from one period - the time between two hear beats. No history is used for the calculations.\\
 
 We used \textit{Mbed OS 5}\footnote{https://os.mbed.com/} to develop the necessary code for the right functionality. It is a browser-based IDE, which also includes a build-in compiler. Based on your set device in this IDE, you can compile online and download the binary file. The device may be programmed by writing this binary file to the device, which is connected to computer by USB, via any type of file manager. The main source code is shown in Listing \ref{lst:code}.\\
@@ -248,11 +249,36 @@ The precision of the algorithm depends on the device configuration and sensor pr
 
 \section{Mensuration}
 
-We have done fifty measurements on different persons with our device and valid device. These values are shown in Table \ref{fig:measurements}. Column `\textit{Person}' represents each person, column `\textit{Value 1}' includes values measured via devices shown in Section \ref{sec:intro} and column `\textit{Value 2}' includes values measured via valid device TODO.
+Measurements were done on fifty different persons with our device and valid device. The values of each measurement are shown in Table \ref{fig:measurements}. Each column in a table represents a different person. Other columns such as `\textit{Value 1}' contains values measured via sensor which was presented in Section \ref{sec:intro} -- Introduction. The last column `\textit{Value 2}' includes values measured via valid device - SILVERCREST - Pulsoximeter SPO 55 (see Figure \ref{fig:pulsoximeter1}). Pulsoximeter is simple, smart, compact and easy to use device. The usage is shown in Figure \ref{fig:pulsoximeter2}. Further informations about the correct device usage are shown in video\footnote{\href{https://youtu.be/RMRV1MhwhIw}{youtu.be/RMRV1MhwhIw}}.\\
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.15]{img/pulsoximeter1.jpg}
+    \caption{SILVERCREST - Pulsoximeter SPO 55~\cite{IMG-PULSOXIMETER-1}.}
+    \label{fig:pulsoximeter1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{img/pulsoximeter2.jpg}
+    \caption{Usage of pulsoximeter~\cite{IMG-PULSOXIMETER-2}.}
+    \label{fig:pulsoximeter2}
+\end{figure}
+
+Based on the measurements, we can calculate statistical values on which basis we can determine the precision of our implementation. TODO ...\\
+
+TODO:\\
+Průměrná abs. chyba: 6,08\%\\
+Průměrná rel. chyba: 8,44\%\\
+Největší odchylka: 40,00\%\\
+Mejmenší odchylka: 0,00\%
 
 \section{Conclusion}
-...
-Vliv okamžitého psychikého stavu na měření (strach a stres z měření).
+Based on a experiments, calculations and measurements we can state the following judgment. Our device is not enough precise to measure hear beat. There are many influencing factors that devalued the results. Factors may be caused by the area itself but also, the major one, are cause by the inaccuracy of the sensor. Some of them are described in Section \ref{sec:impl}.\\
+
+We have done a few measurements on people with heart arrhythmia, but we could not detect that irregular behaviour hear beat. Our device is not capable of detection of these irregularities.
 
 
 \newpage %#########################################################################################
