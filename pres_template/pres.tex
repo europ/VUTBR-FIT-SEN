@@ -17,9 +17,6 @@
 \documentclass[10pt,xcolor=pdflatex]{beamer}
 \usepackage{newcent}
 \usepackage[utf8]{inputenc}
-\usepackage{hyperref}
-\usepackage{fancyvrb}
-\usepackage{multicol}
 
 \usetheme{FIT}
 
@@ -50,7 +47,7 @@
     \begin{itemize}
         \item NUCLEO F030R8
             \begin{itemize}
-                \item STM32F030\\[10em]
+                \item STM32F030R8\\[10em]
             \end{itemize}
             % image (will be added via LibreOffice Draw)
         \item Keyes KY-039
@@ -59,17 +56,50 @@
 \end{frame}
 
 % 3
-\begin{frame}\frametitle{Connection}
+\begin{frame}\frametitle{Basic Principle}
     % image (will be added via LibreOffice Draw)
 \end{frame}
 
 % 4
-\begin{frame}\frametitle{Implementation}
-    % TODO
+\begin{frame}\frametitle{Connection Scheme}
+    % image (will be added via LibreOffice Draw)
 \end{frame}
 
+% 5
+\begin{frame}\frametitle{Implementation}
+    \begin{itemize}
+        \item \textit{Mbed OS 5}\footnote{\href{https://os.mbed.com/}{os.mbed.com}}
+            \begin{itemize}
+                \item browser-based IDE\\[3em]
+            \end{itemize}
+        \item Principle of Algorithm
+            \begin{enumerate}
+                \item get value
+                \begin{itemize}
+                    \item a few starting values are required to initialize the algorithm\\[1em]
+                \end{itemize}
+                \item deviation calculation
+                \begin{itemize}
+                    \item determine divergence\\[1em]
+                \end{itemize}
+                \item deviation evaluation
+                \begin{itemize}
+                    \item heart beat detected / not detected\\[1em]
+                \end{itemize}
+                \item pulse notification
+                \begin{itemize}
+                    \item turn LED on/off
+                \end{itemize}
+            \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+% 6
 \begin{frame}\frametitle{Conclusion}
-    % TODO
+    \begin{itemize}
+        \item sensor precision has a significant impact on the results\\[2em]
+        \item method of heart beat detection via infrared rays works
+    \end{itemize}
 \end{frame}
 
 % 11
